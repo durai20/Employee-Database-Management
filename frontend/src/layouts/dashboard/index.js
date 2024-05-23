@@ -9,7 +9,8 @@ import React, { useState, useEffect } from "react";
 import { useSession } from " SessionContext";
 
 function Dashboard() {
-  const {name,pass}=useSession();
+  const {name,pass,role}=useSession();
+  console.log(role)
   const [totalEmployeeCount, setTotalEmployeeCount] = useState(0);
   const [totalEmployeeCseCount, setTotalEmployeeCseCount] = useState(0);
   const [totalEmployeeItCount, setTotalEmployeeItCount] = useState(0);

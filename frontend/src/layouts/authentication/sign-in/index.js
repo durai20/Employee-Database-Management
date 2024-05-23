@@ -7,16 +7,16 @@ import MDButton from "components/MDButton";
 import Stack from '@mui/material/Stack';
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
-import { useSession } from " SessionContext";
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 import { Tabs, Tab, Divider } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import { useSession } from " SessionContext";
 function Basic() {
   const navigate = useNavigate();
   const [tabIndex, setTabIndex] = useState(0);
-  const { name, setName, pass, setPass } = useSession();
-  const [email, setEmail] = useState(""); // State for storing email
+  const { name, setName, pass, setPass,role, setRole ,email,setEmail} = useSession();
+
 const [password, setPassword] = useState(""); // State for storing password
 
   const handleChangeTab = (event, newValue) => {
@@ -47,12 +47,14 @@ const [password, setPassword] = useState(""); // State for storing password
       if (tabIndex === 0) {
       
         apiUrl = "http://localhost:5001/admin/login";
+        setRole("admin");
+        console.log("hi");
          // API endpoint for admin sign-in
         dashboardRoute = "/dashboard"; // Route for admin dashboard
       } else if (tabIndex === 1) {
        
         apiUrl = "http://localhost:5001/employee/login"; // API endpoint for employee sign-in'
-       
+        setRole("employee");
         dashboardRoute = "/studentlayouts/profile"; // Route for employee dashboard
       }
   

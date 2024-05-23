@@ -65,7 +65,7 @@ const routes = [
   //   key: "result",
   //   icon: <Icon fontSize="small">person</Icon>,
   //   route: "/results",
-  //   component: <Result />,
+  //   component: <Result />,1
   // },
   // {
   //   type: "collapse",
@@ -115,6 +115,16 @@ const routes = [
     icon:<Icon fontSize="small">exit_to_app</Icon>,
     route: "/sign-in",
     component: <SignIn/>,
+    role:"admin"
+  },
+  {
+    type: "collapse",
+    name: "Logout",
+    key: "sign-in",
+    icon:<Icon fontSize="small">exit_to_app</Icon>,
+    route: "/sign-in",
+    component: <SignIn/>,
+    role:"employee"
   }
   // {
   //   type: "collapse", // Hide from sidebar navigation

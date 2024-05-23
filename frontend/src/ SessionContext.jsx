@@ -6,10 +6,11 @@ export const SessionContext = createContext();
 export const SessionProvider = ({ children }) => {
   const [name, setName] = useState('');
   const [pass, setPass] = useState('');
-
+  const [role, setRole] = useState('');
+  const [email, setEmail] = useState('');
 
   return (
-    <SessionContext.Provider value={{ name, setName, pass, setPass }}>
+    <SessionContext.Provider value={{ name, setName, pass, setPass,role ,setRole,email,setEmail}}>
       {children}
     </SessionContext.Provider>
   );

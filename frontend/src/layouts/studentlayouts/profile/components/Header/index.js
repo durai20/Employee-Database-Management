@@ -1,17 +1,12 @@
 import { useState, useEffect } from "react";
-
-// prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import AppBar from "@mui/material/AppBar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Icon from "@mui/material/Icon";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDAvatar from "components/MDAvatar";
 import breakpoints from "assets/theme/base/breakpoints";
+// Images
 import burceMars from "assets/images/bruce-mars.jpg";
 import backgroundImage from "assets/images/bg-profile.jpeg";
 
@@ -20,9 +15,6 @@ function Header({ children }) {
   const [tabValue, setTabValue] = useState(0);
 
   useEffect(() => {
-
-    fetchUserInfo();
-
     // A function that sets the orientation state of the tabs.
     function handleTabsOrientation() {
       return window.innerWidth < breakpoints.values.sm
@@ -41,21 +33,6 @@ function Header({ children }) {
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleTabsOrientation);
   }, [tabsOrientation]);
-
-  const fetchUserInfo = async () => {
-    try {
-      // Make API request to fetch user info
-      const response = await fetch("http://localhost:5001/userInfo");
-      if (response.ok) {
-        const data = await response.json();
-        setUserInfo({ name: data.name, position: data.position });
-      } else {
-        throw new Error("Failed to fetch user info");
-      }
-    } catch (error) {
-      console.error("Error fetching user info:", error);
-    }
-  };
 
   const handleSetTabValue = (event, newValue) => setTabValue(newValue);
 
@@ -94,18 +71,18 @@ function Header({ children }) {
           <Grid item>
             <MDBox height="100%" mt={0.5} lineHeight={1}>
               <MDTypography variant="h5" fontWeight="medium">
-              {userInfo.name}
+                Guru
               </MDTypography>
               <MDTypography variant="button" color="text" fontWeight="regular">
-              {userInfo.position}
+                Assistant Professor
               </MDTypography>
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={4} sx={{ ml: "auto" }}>
+          {/* <Grid item xs={12} md={6} lg={4} sx={{ ml: "auto" }}>
             <AppBar position="static">
               <Tabs orientation={tabsOrientation} value={tabValue} onChange={handleSetTabValue}>
                 <Tab
-                  label="Ap"
+                  label="App"
                   icon={
                     <Icon fontSize="small" sx={{ mt: -0.25 }}>
                       home
@@ -113,7 +90,7 @@ function Header({ children }) {
                   }
                 />
                 <Tab
-                  label="Mes"
+                  label="Message"
                   icon={
                     <Icon fontSize="small" sx={{ mt: -0.25 }}>
                       email
@@ -130,7 +107,7 @@ function Header({ children }) {
                 />
               </Tabs>
             </AppBar>
-          </Grid>
+          </Grid> */}
         </Grid>
         {children}
       </Card>
