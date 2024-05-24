@@ -6,7 +6,7 @@ This project utilizes the following libraries (MySQL, Express.js, React.js, Node
 
 ### Frontend
 
-1. Navigate to the frontend directory:
+1. Navigate to the frontend directory :
    
    cd frontend
    
